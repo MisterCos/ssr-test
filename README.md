@@ -1,59 +1,92 @@
-# Prueba
+# 🧪 Angular 20 SSR Lab: Comparativa de CSR, SSR Clásico y SSR con Hidratación Parcial
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.4.
+Este proyecto demuestra y compara los tres enfoques principales de renderizado en Angular 20:
 
-## Development server
+- ✅ **CSR (Client-Side Rendering)**
+- 🟧 **SSR clásico con Angular Universal**
+- 🟦 **SSR con Hidratación Parcial (Partial Hydration)**
 
-To start a local development server, run:
+---
+
+## 📁 Estructura del proyecto
+
+```bash
+poke-ssr-lab/
+├── src/app/
+│   ├── home/               # Página de bienvenida
+│   ├── csr/                # Buscador usando CSR puro
+│   ├── ssr-classic/        # Buscador con SSR clásico (Angular Universal)
+│   ├── ssr-hydration/      # Buscador con SSR e hidratación parcial
+│   └── layout/             # Layout base común
+├── app.routes.ts           # Enrutamiento central
+├── app.config.ts           # Configuración con `provideClientHydration`
+├── main.ts                 # Bootstrap
+├── server.ts               # SSR clásico (Angular Universal)
+└── ...
+```
+
+---
+
+## 🚀 Instalación
+
+```bash
+npm install
+```
+
+---
+
+## 🧪 Ejecutar en modo desarrollo
+
+- **CSR puro**:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- **SSR clásico (Angular Universal)**:
 
 ```bash
-ng generate component component-name
+npm run dev:ssr
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+> Esto utiliza `@angular/platform-server`.
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## 🔍 Qué hace cada buscador
 
-To build the project run:
+| Enfoque              | Ruta                 | Detalles |
+|----------------------|----------------------|----------|
+| **CSR**              | `/csr`               | Renderiza todo en el cliente. 100% SPA. |
+| **SSR clásico**      | `/ssr-classic`       | Render inicial en servidor, pero necesita hidratar todo para ser interactivo. |
+| **SSR + hidratación**| `/ssr-hydration`     | Render inicial desde el servidor + hidratación selectiva solo en el input de búsqueda. Más eficiente. |
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 📊 Objetivo del proyecto
 
-## Running unit tests
+- Comparar experiencia de usuario, tiempo de carga, TTI y peso de JS.
+- Explorar la nueva capacidad de **hidratación parcial** de Angular 20.
+- Servir como ejemplo educativo o base para proyectos más avanzados.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+---
 
-```bash
-ng test
-```
+## 📎 Requisitos
 
-## Running end-to-end tests
+- Node.js 18+
+- Angular CLI 20+
+- Compatible con PNPM / NPM
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
-ng e2e
-```
+## 📚 Recursos útiles
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- [Angular SSR Docs](https://angular.dev/guide/ssr)
+- [Hydration Partial](https://angular.dev/guide/hydration)
+- [PokéAPI](https://pokeapi.co/)
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 🧑‍💻 Autor
+
+Proyecto creado por [Tu Nombre] como prueba técnica y didáctica con Angular 20.
